@@ -1,0 +1,15 @@
+import gcapi  # pip install gcapi
+
+your_algorithm_slug = "tigerexamplealgorithm.tar.xz"           # <--- CHANGE THIS
+client = gcapi.Client(token="a6c48c76ac74e6f1375af611d8b15f8487704777e1bbf95bdbc3b7dd4ca92c62")                           # <--- CHANGE THIS, more information about the token please see this link: https://grand-challenge.org/documentation/what-can-gc-api-be-used-for/
+
+job = client.run_external_job(
+    algorithm=your_algorithm_slug,
+    inputs={
+        # 104S (from the tils training subset)
+        "generic-medical-image": "https://grand-challenge.org/api/v1/cases/images/18a9e579-34bd-43b7-ac42-61541fb35156/",
+        # 104S_rois (similar rois as expected in L1)  
+        "generic-overlay": "https://grand-challenge.org/api/v1/cases/images/e676fdaa-719e-4050-81b7-4724fed69c52/"
+    }
+)
+# More information about gcapi please see this link: https://grand-challenge.org/documentation/grand-challenge-api/

@@ -1,0 +1,79 @@
+GPUS: (0, 1)
+WORKERS: 8
+PRINT_FREQ: 50
+
+DATASET:
+  DATASET: COCODataset
+  ROOT: './data/300w/images'
+  TRAINSET: './data/300w/face_landmarks_300w_train.csv'
+  TESTSET: './data/300w/face_landmarks_300w_valid.csv'
+  FLIP: true
+  SCALE_FACTOR: 0.25
+  ROT_FACTOR: 30
+MODEL:
+  NAME: 'hrnet'
+  NUM_JOINTS: 1
+  INIT_WEIGHTS: true
+  PRETRAINED: ''
+  SIGMA: 1.0 
+  IMAGE_SIZE:
+    - 512
+    - 512
+  HEATMAP_SIZE:
+    - 128
+    - 128
+  EXTRA:
+    FINAL_CONV_KERNEL: 1
+    STAGE2:
+      NUM_MODULES: 1
+      NUM_BRANCHES: 2
+      BLOCK: BASIC
+      NUM_BLOCKS:
+        - 4
+        - 4
+      NUM_CHANNELS:
+        - 18
+        - 36
+      FUSE_METHOD: SUM
+    STAGE3:
+      NUM_MODULES: 4
+      NUM_BRANCHES: 3
+      BLOCK: BASIC
+      NUM_BLOCKS:
+        - 4
+        - 4
+        - 4
+      NUM_CHANNELS:
+        - 18
+        - 36
+        - 72
+      FUSE_METHOD: SUM
+    STAGE4:
+      NUM_MODULES: 3
+      NUM_BRANCHES: 4
+      BLOCK: BASIC
+      NUM_BLOCKS:
+        - 4
+        - 4
+        - 4
+        - 4
+      NUM_CHANNELS:
+        - 18
+        - 36
+        - 72
+        - 144
+      FUSE_METHOD: SUM
+TRAIN:
+  BATCH_SIZE_PER_GPU: 1
+  SHUFFLE: False
+  BEGIN_EPOCH: 0
+  END_EPOCH: 1
+  RESUME: True
+  OPTIMIZER: 'adam'
+  LR: 0.0001
+  WD: 0.0
+  LR_STEP: [30, 50]
+  MOMENTUM: 0.0
+  NESTEROV: false
+TEST:
+  BATCH_SIZE_PER_GPU: 8
