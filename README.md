@@ -12,6 +12,7 @@ Based on the results of segmentation, the target regions for detection are colle
 input to the detection network by dataloader. The number of pixels of each category is recorded for each patch, since I 
 calculate the til score based on the patches. 
 - The time used for each stage can be seen.
+- The total process will be 8 times faster than before.
 - In the "test.sh", the shm-size can be set larger, and the num_workers of DataLoader can then set higher. 
 - In the "test.sh", the "--runtime nvidia" is added to "docker run". This may not need to be add, and it seems to depend on your environment.
 
