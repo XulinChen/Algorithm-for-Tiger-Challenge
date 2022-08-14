@@ -10,13 +10,12 @@ MEMORY=4g
 
 echo "Building docker"
 #./build.sh
-# docker cp ./tigeralgorithmexample2/rw.py tigerexamplealgorithm:tigeralgorithmexample2/
 
 echo "Creating volume..."
 docker volume create tiger-output
 
 echo "Running algorithm..."
-docker run --rm \
+docker run --rm --runtime nvidia\
         --memory=$MEMORY \
         --memory-swap=$MEMORY \
         --network=none \
