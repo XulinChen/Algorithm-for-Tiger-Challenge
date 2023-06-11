@@ -27,5 +27,5 @@ calculate the til score based on the patches.
   - Pytorch 1.9.0
 
 ## Authors
-This code is made by Xulin Chen, a member at Cells Vision (Guangzhou) Medical Technology Inc, China. It is based on the code developed by the TIGER challenge organisers.
+This code is made by Xulin Chen. It is based on the code developed by the TIGER challenge organisers.
 
