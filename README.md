@@ -3,7 +3,7 @@
 This repository includes the codes and the dockerfile for computing TILs given a H&E breast cancer histopathology slide. 
 The descriptions of the algorithm can be found [here](https://tiger.grand-challenge.org/evaluation/survival-final-evaluation/leaderboard/) with the user 大胖胖墩(Xulin Chen).
 
-## Run the algotithm
+## Run the algorithm
 - The model weights of this repository can be obtained [here](https://drive.google.com/file/d/11On7kDKU79ubP00_jCIvEJMnVS_vgpzd/view?usp=sharing). 
 After downloading it, please put the two files within the folder to the ./model_weight/ of this repository. 
 The model weights are on the CC BY-NC 4.0 license.
